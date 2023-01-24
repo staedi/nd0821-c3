@@ -20,7 +20,7 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
     model = RandomForestClassifier(random_state=42)
-    model.fit(X_train,y_train)
+    model.fit(X_train, y_train)
     return model
 
 
@@ -97,8 +97,9 @@ def performance_on_slice(model, data, cat_features, encoder, lb, label='salary')
             X, y, encoder, lb = process_data(data.loc[data[cat]==value], categorical_features=cat_features, label=label, encoder=encoder, lb=lb, training=False)
             preds = inference(model, X)
             precision, recall, fbeta = compute_model_metrics(y, preds)
-            metrics.append((cat,value,precision,recall,fbeta))
+            metrics.append((cat, value, precision, recall, fbeta))
     
-    metrics_df = pd.DataFrame(metrics,columns=['category','category_value','precision','recall','f1'])
-    metrics_mean = metrics_df[['precision','recall','f1']].mean()
+    metrics_df = pd.DataFrame(metrics, columns=['category', 'category_value', 'precision', 'recall', 'f1'])
+    metrics_mean = metrics_df[['precision', 'recall', 'f1']].mean()
     return metrics_df, metrics_mean
+    
