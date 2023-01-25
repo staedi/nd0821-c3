@@ -4,10 +4,10 @@ import pytest
 
 @pytest.fixture
 def client():
-    # with TestClient(app) as cli:
-    #     yield cli
-    client = TestClient(app)
-    return client
+    with TestClient(app) as cli:
+        yield cli
+#     client = TestClient(app)
+#     return client
 
 # GET: Welcome message
 def test_welcome(client):
