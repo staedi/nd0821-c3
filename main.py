@@ -39,7 +39,6 @@ class CensusData(BaseModel):
     capital_loss: int
     hours_per_week: int
     native_country: str
-    salary: Optional[str]
 
     class Config:
         schema_extra = {
@@ -58,7 +57,6 @@ class CensusData(BaseModel):
                 "capital-loss": 0,
                 "hours-per-week": 55,
                 "native-country": "United-States",
-                "salary": ">50K"
             }
         }
         

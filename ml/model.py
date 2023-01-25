@@ -64,6 +64,43 @@ def inference(model, X):
     return preds
 
 
+def performance_overall(model, data, cat_features, encoder, lb, label='salary'):
+    """ Evalue performance on test data.
+
+    Inputs
+    ------
+    model : ???
+        Trained machine learning model.
+    X : pd.DataFrame
+        Dataframe containing the features and label. Columns in `cat_features`
+    cat_features: list[str]
+        List containing the names of the categorical features
+    encoder : sklearn.preprocessing._encoders.OneHotEncoder
+        Trained sklearn OneHotEncoder, only used if training=False.
+    lb : sklearn.preprocessing._label.LabelBinarizer
+        Trained sklearn LabelBinarizer, only used if training=False.
+    label : str
+        Name of the label column in `X`. If None, then an empty array will be returned
+        for y (default=None)
+
+    Returns
+    -------
+    metrics_df : np.array
+        Metrics of test data from the model.
+    """
+
+    metrics = []
+
+    X, y, encoder, lb = process_data(data, categorical_features=cat_features, label=label, encoder=encoder, lb=lb, training=False)
+    preds = inference(model, X)
+    precision, recall, fbeta = compute_model_metrics(y, preds)
+    metrics.append((precision, recall, fbeta))
+    
+    metrics_df = pd.DataFrame(metrics, columns=['precision', 'recall', 'f1'])
+    metrics_mean = metrics_df[['precision', 'recall', 'f1']].mean()
+    return metrics_df, metrics_mean
+
+
 def performance_on_slice(model, data, cat_features, encoder, lb, label='salary'):
     """ Evalue performance on sliced data.
 

@@ -18,7 +18,6 @@ payload = {
     "capital-loss": 0,
     "hours-per-week": 55,
     "native-country": "United-States",
-    "salary": ">50K"
 }
 
 headers = {'Content-Type':'application/json'}

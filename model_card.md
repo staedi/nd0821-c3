@@ -28,9 +28,9 @@ With `scikit-learn`'s `train_test_split` function, 20% of the dataset was used f
 
 To evaluate the model performance, three metrics were used, namely, precision, recall and F1 score. These performance metrics on the model were as follows.
 
-* Precision: 0.74
-* Recall: 0.61
-* F1 score: 0.67
+| precision | recall | f1 |
+| :---: | :---: | :---: |
+| 0.726269 | 0.633504 | 0.676723 |
 
 
 ## Ethical Considerations

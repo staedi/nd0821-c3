@@ -35,10 +35,22 @@ X_test, y_test, encoder, lb = process_data(
 # Train and save a model.
 model = ml.model.train_model(X_train, y_train)
 
-model_paths = {'model':'model/model.pkl','encoder':'model/encoder.pkl','lb':'model/lb.pkl'}
+model_paths = {'model': 'model/model.pkl', 'encoder': 'model/encoder.pkl', 'lb': 'model/lb.pkl'}
 for path_key,path in model_paths.items():
     with open(path,'wb') as f:
         pickle.dump(eval(path_key),f)
 
-# Slice data performances
-metrics, metrics_mean = ml.model.performance_on_slice(model, data=data, cat_features=cat_features, encoder=encoder, lb=lb, label='salary')
+# Get metrics performances and save to output text files
+output_paths = {'overall': 'model/output.txt', 'slice': 'model/slice_output.txt'}
+for output_key, output_path in output_paths.items():
+    # Slice data performances
+    if output_key == 'slice':
+        metrics, metrics_slice = ml.model.performance_on_slice(model, data=data, cat_features=cat_features, encoder=encoder, lb=lb, label='salary')
+    # Overall data performances
+    else:
+        metrics, metrics_slice = ml.model.performance_overall(model, data=test, cat_features=cat_features, encoder=encoder, lb=lb, label='salary')
+
+    # Save to output text
+    with open(output_path,'w') as f:
+        metrics_str = metrics.to_string(index=False)
+        f.write(metrics_str)

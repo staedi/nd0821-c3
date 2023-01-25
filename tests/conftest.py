@@ -83,7 +83,6 @@ def payload_over_sample():
         "capital-loss": 0,
         "hours-per-week": 55,
         "native-country": "United-States",
-        "salary": ">50K"
     }
 
     return payload
@@ -106,7 +105,6 @@ def payload_under_sample():
         "capital-loss": 0,
         "hours-per-week": 55,
         "native-country": "United-States",
-        "salary": "<=50K"
     }
 
     return payload
@@ -129,7 +127,6 @@ def payload_error_sample():
         "capital-loss": 0,
         "hours-per-week": 55,
         "native-country": "United-States",
-        "salary": "<=50K"
     }
 
     return payload

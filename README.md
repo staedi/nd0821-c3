@@ -90,7 +90,6 @@ The following are specification of each data column.
 | capital_loss | int |
 | hours_per_week | int |
 | native_country | str |
-| *salary* | Optional[str] |
 
 
 ## Sample API usages
