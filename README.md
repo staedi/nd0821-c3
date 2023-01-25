@@ -99,10 +99,10 @@ The following are specification of each data column.
 
 By accessing the root directory of the API with `GET` method, you are presented with a welcome message.
 
-[!](https://github.com/staedi/udacity-census-api/raw/main/screenshots/live_get.png)
+![](https://github.com/staedi/udacity-census-api/raw/main/screenshots/live_get.png)
 
 ### HTTP 200/OK POST method
 
 To send a `POST` request, unlike its counterpart (`GET`), it should be done with CURL or `requests` module.
 
-[!](https://github.com/staedi/udacity-census-api/raw/main/screenshots/live_post.png)
+![](https://github.com/staedi/udacity-census-api/raw/main/screenshots/live_post.png)
