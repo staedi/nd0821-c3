@@ -68,21 +68,22 @@ def prepare_model(prepare_data):
 # Over 50K
 @pytest.fixture(scope='session')
 def payload_over_sample():
-    payload = {'age': 31,
-        'workclass': 'Private',
-        'fnlgt': 45781,
-        'education': 'Masters',
-        'education-num': 14,
-        'marital-status': 'Never-married',
-        'occupation': 'Prof-speciality',
-        'relationship': 'Not-in-family',
-        'race': 'White',
-        'sex': 'Female',
-        'capital-gain': 14000,
-        'capital-loss': 0,
-        'hours-per-week': 55,
-        'native-country': 'United-States',
-        'salary': '>50K'
+    payload = {
+        "age": 31,
+        "workclass": "Private",
+        "fnlgt": 45781,
+        "education": "Masters",
+        "education-num": 14,
+        "marital-status": "Never-married",
+        "occupation": "Prof-speciality",
+        "relationship": "Not-in-family",
+        "race": "White",
+        "sex": "Female",
+        "capital-gain": 14000,
+        "capital-loss": 0,
+        "hours-per-week": 55,
+        "native-country": "United-States",
+        "salary": ">50K"
     }
 
     return payload
@@ -91,21 +92,21 @@ def payload_over_sample():
 @pytest.fixture(scope='session')
 def payload_under_sample():
     payload = {
-        'age': 66,
-        'workclass': 'Private',
-        'fnlgt': 211781,
-        'education': 'Masters',
-        'education-num': 14,
-        'marital-status': 'Never-married',
-        'occupation': 'Prof-speciality',
-        'relationship': 'Not-in-family',
-        'race': 'Black',
-        'sex': 'Female',
-        'capital-gain': 0,
-        'capital-loss': 0,
-        'hours-per-week': 55,
-        'native-country': 'United-States',
-        'salary': '<=50K'
+        "age": 66,
+        "workclass": "Private",
+        "fnlgt": 211781,
+        "education": "Masters",
+        "education-num": 14,
+        "marital-status": "Never-married",
+        "occupation": "Prof-speciality",
+        "relationship": "Not-in-family",
+        "race": "Black",
+        "sex": "Female",
+        "capital-gain": 0,
+        "capital-loss": 0,
+        "hours-per-week": 55,
+        "native-country": "United-States",
+        "salary": "<=50K"
     }
 
     return payload
@@ -114,21 +115,21 @@ def payload_under_sample():
 @pytest.fixture(scope='session')
 def payload_error_sample():
     payload = {
-        'age': 66,
-        'workclass': 'Private',
-        'fnlgt': 211781,
-        'education': 'Masters',
-        'education-num': 'Twenty',
-        'marital-status': 'Never-married',
-        'occupation': 'Prof-speciality',
-        'relationship': 'Not-in-family',
-        'race': 'Black',
-        'sex': 'Female',
-        'capital-gain': 0,
-        'capital-loss': 0,
-        'hours-per-week': 55,
-        'native-country': 'United-States',
-        'salary': '<=50K'
+        "age": 66,
+        "workclass": "Private",
+        "fnlgt": 211781,
+        "education": "Masters",
+        "education-num": "Twenty",
+        "marital-status": "Never-married",
+        "occupation": "Prof-speciality",
+        "relationship": "Not-in-family",
+        "race": "Black",
+        "sex": "Female",
+        "capital-gain": 0,
+        "capital-loss": 0,
+        "hours-per-week": 55,
+        "native-country": "United-States",
+        "salary": "<=50K"
     }
 
     return payload
