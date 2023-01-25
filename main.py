@@ -10,14 +10,6 @@ from ml.model import inference
 import uvicorn
 
 
-# Load models
-model_paths = {'model':'model/model.pkl','encoder':'model/encoder.pkl','lb':'model/lb.pkl'}
-models = dict.fromkeys(model_paths)
-for path_key,path in model_paths.items():
-    with open(path,'rb') as f:
-        models[path_key] = pickle.load(f)
-
-
 # Help function to replace underbar back to dash
 def rep_ubar_to_dash(col: str) -> str:
     return col.replace('_','-')
@@ -65,6 +57,16 @@ class CensusData(BaseModel):
 
 # Initialize FastAPI app
 app = FastAPI()
+
+# Load models
+@app.on_event("startup")
+async def startup_event(): 
+    global model_paths, models
+    model_paths = {'model':'model/model.pkl','encoder':'model/encoder.pkl','lb':'model/lb.pkl'}
+    models = dict.fromkeys(model_paths)
+    for path_key,path in model_paths.items():
+        with open(path,'rb') as f:
+            models[path_key] = pickle.load(f)
 
 # Show a welcome msg
 @app.get('/')
