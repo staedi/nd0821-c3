@@ -103,7 +103,7 @@ async def predict(input: CensusData):
     input_df = pd.DataFrame(input_data,index=[0])
 
     # Preprocess data
-    X, y, encoder, lb = process_data(input_df, categorical_features=cat_features, label='salary', encoder=models['encoder'], lb=models['lb'], training=False)
+    X, y, encoder, lb = process_data(input_df, categorical_features=cat_features, label=None, encoder=models['encoder'], lb=models['lb'], training=False)
 
     # Prediction
     preds = inference(models['model'], X)
