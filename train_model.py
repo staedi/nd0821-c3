@@ -45,10 +45,10 @@ output_paths = {'overall': 'model/output.txt', 'slice': 'model/slice_output.txt'
 for output_key, output_path in output_paths.items():
     # Slice data performances
     if output_key == 'slice':
-        metrics, metrics_slice = ml.model.performance_on_slice(model, data=data, cat_features=cat_features, encoder=encoder, lb=lb, label='salary')
+        metrics = ml.model.performance_on_slice(model, data=data, cat_features=cat_features, encoder=encoder, lb=lb, label='salary')
     # Overall data performances
     else:
-        metrics, metrics_slice = ml.model.performance_overall(model, data=test, cat_features=cat_features, encoder=encoder, lb=lb, label='salary')
+        metrics = ml.model.performance_overall(model, data=test, cat_features=cat_features, encoder=encoder, lb=lb, label='salary')
 
     # Save to output text
     with open(output_path,'w') as f:

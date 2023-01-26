@@ -97,8 +97,7 @@ def performance_overall(model, data, cat_features, encoder, lb, label='salary'):
     metrics.append((precision, recall, fbeta))
     
     metrics_df = pd.DataFrame(metrics, columns=['precision', 'recall', 'f1'])
-    metrics_mean = metrics_df[['precision', 'recall', 'f1']].mean()
-    return metrics_df, metrics_mean
+    return metrics_df
 
 
 def performance_on_slice(model, data, cat_features, encoder, lb, label='salary'):
@@ -137,6 +136,5 @@ def performance_on_slice(model, data, cat_features, encoder, lb, label='salary')
             metrics.append((cat, value, precision, recall, fbeta))
     
     metrics_df = pd.DataFrame(metrics, columns=['category', 'category_value', 'precision', 'recall', 'f1'])
-    metrics_mean = metrics_df[['precision', 'recall', 'f1']].mean()
-    return metrics_df, metrics_mean
+    return metrics_df
     
